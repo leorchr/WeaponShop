@@ -21,6 +21,7 @@ private:
 	int mWeight;
 	int mDamages;
 	int mCost;
+	int mStartCost;
 	float mDurability;
 
 public:
@@ -28,5 +29,15 @@ public:
 	Weapon(string name, string description, WeaponType type, int weight, int damages, int cost, float durability);
 	Weapon(string name, WeaponType type, int weight, int damages, int cost);
 	~Weapon();
+
+	string WeaponToStr(WeaponType weapon);
+	string GetWeaponName();
+	WeaponType GetWeaponType();
+	int GetWeaponWeight();
+	int GetWeaponDamages();
+	int GetWeaponCost();
+	float GetWeaponDurability();
+	void SetDurability(float durability);
+	void SetCost();
 };
 

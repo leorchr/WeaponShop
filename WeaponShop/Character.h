@@ -1,5 +1,6 @@
 #include <string>
 #include "Weapon.h"
+#include "Merchant.h"
 #pragma once
 using namespace std;
 
@@ -30,18 +31,29 @@ private:
 	std::string mCatchPhrase;
 	int mMoney;
 	int mLifePoints;
-	Weapon mWeapon;
+	Weapon mWeapons[3];
 	Race mRace;
 	Job mJob;
 
 public:
 	Character();
-	Character(string firstName,string lastName, string catchPhrase, int money, int lifePoints, Weapon weapon, Race race, Job job);
+	Character(string firstName,string lastName, string catchPhrase, int money, int lifePoints, Weapon weapons[3], Race race, Job job);
 	~Character();
 
-	string Introduce();
-	/*void Buy();
-	void Sell();
-	void Attack();
-	void Loot();*/
+	string JobToStr(Job job);
+	string RaceToStr(Race race);
+	string GetName();
+	int GetMoney();
+	Weapon GetWeapon();
+	int GetPV();
+	void SetPV(int pv);
+	void Introduce();
+	void AddToInventory(Weapon weapon);
+	void ShowInventory();
+	bool IsInventoryFull();
+	int InventorySize();
+	void RemoveFromInventory(int number);
+	void BuyWeapon(Merchant merchant, int number);
+	void SellWeapon(Merchant merchant, int number);
+	void Attack(Character& character, int number);
 };
